@@ -1,0 +1,10 @@
+services:
+  report-items:
+    build: .
+    env_file:
+      - .env
+    environment:
+      REPORT_OUTPUT_PATH: /app/reports
+    volumes:
+      - ../${REPORT_OUTPUT_DIR}:/app/reports
+    restart: unless-stopped

@@ -1,0 +1,38 @@
+[project]
+name = "report-items"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "apscheduler>=3.11.3",
+    "httpx>=0.28.1",
+    "openpyxl>=3.1.5",
+    "pydantic>=2.13.5",
+    "pydantic-settings>=2.15.0",
+    "pyright>=1.1.411",
+]
+
+[project.scripts]
+report-items = "report_items.main:main"
+
+[build-system]
+requires = ["uv_build>=0.12.7,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-mock>=3.14.0",
+    "ruff>=0.16.5",
+    "pyright>=1.1.411",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.pyright]
+include = ["report_items", "tests"]
+typeCheckingMode = "standard"
+pythonVersion = "3.14"
+reportMissingTypeStubs = false

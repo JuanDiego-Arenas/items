@@ -1,20 +1,41 @@
 import httpx
+from pydantic import ValidationError
 
-from report_items.auth.token_manager import TokenManager
-from report_items.clients.auth_client import AuthClient
-from report_items.clients.items_client import ItemsClient
-from report_items.config.settings import Settings
-from report_items.jobs.report_job import ReportJob
-from report_items.logging.logger import configure_logging
-from report_items.reports.excel_report import ExcelReportGenerator
-from report_items.reports.item_report_mapper import ItemReportMapper
-from report_items.scheduler.scheduler import ReportScheduler
+from src.auth.token_manager import TokenManager
+from src.clients.auth_client import AuthClient
+from src.clients.items_client import ItemsClient
+from src.config.settings import Settings
+from src.jobs.report_job import ReportJob
+from src.logging.logger import configure_logging
+from src.reports.excel_report import ExcelReportGenerator
+from src.reports.item_report_mapper import ItemReportMapper
+from src.scheduler.scheduler import ReportScheduler
+
+
+def load_settings() -> Settings:
+    try:
+        return Settings()  # pyright: ignore[reportCallIssue]
+    except ValidationError as exc:
+        missing_variables = [
+            str(error["loc"][0]).upper()
+            for error in exc.errors()
+            if error["type"] == "missing"
+        ]
+
+        if missing_variables:
+            variables = ", ".join(missing_variables)
+            raise SystemExit(
+                f"Faltan variables de entorno obligatorias: {variables}. "
+                "Revise el archivo .env."
+            ) from exc
+
+        raise SystemExit("El archivo .env contiene valores inválidos.") from exc
 
 
 def main() -> None:
     configure_logging()
 
-    settings = Settings()
+    settings = load_settings()
 
     with httpx.Client(
         base_url=settings.api_base_url,

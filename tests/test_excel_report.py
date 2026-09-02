@@ -2,9 +2,9 @@ from pathlib import Path
 
 from openpyxl import load_workbook
 
-from report_items.clients.items_client import Item
-from report_items.reports.excel_report import ExcelReportGenerator
-from report_items.reports.item_report_mapper import ItemReportMapper
+from src.clients.items_client import Item
+from src.reports.excel_report import ExcelReportGenerator
+from src.reports.item_report_mapper import ItemReportMapper
 
 
 def build_item(item_id: int, descripcion: str) -> Item:

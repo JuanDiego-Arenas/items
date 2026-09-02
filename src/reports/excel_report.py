@@ -6,8 +6,8 @@ from openpyxl import Workbook
 from openpyxl.cell import WriteOnlyCell
 from openpyxl.styles import Font
 
-from clients.items_client import Item
-from reports.item_report_mapper import ItemReportMapper
+from src.clients.items_client import Item
+from src.reports.item_report_mapper import ItemReportMapper
 
 
 class ExcelReportGenerator:

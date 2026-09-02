@@ -3,9 +3,9 @@ import logging
 import httpx
 from pydantic import BaseModel, ConfigDict, Field
 
-from report_items.auth.token_manager import TokenManager
-from report_items.config.settings import Settings
-from report_items.exceptions.external_api import (
+from src.auth.token_manager import TokenManager
+from src.config.settings import Settings
+from src.exceptions.external_api import (
     ExternalApiError,
     ExternalApiForbiddenError,
     ExternalApiNotFoundError,
@@ -13,7 +13,7 @@ from report_items.exceptions.external_api import (
     ExternalApiServerError,
     ExternalApiUnauthorizedError,
 )
-from report_items.utils.time import build_api_timestamp
+from src.utils.time import build_api_timestamp
 
 logger = logging.getLogger(__name__)
 

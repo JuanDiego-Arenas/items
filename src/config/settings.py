@@ -12,7 +12,7 @@ class Settings(BaseSettings):
     api_password: str
 
     api_channel: str = "API"
-    api_timeout: float = 30.0
+    api_timeout: float = 60.0
 
     company_id: str
 

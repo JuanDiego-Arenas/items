@@ -1,4 +1,4 @@
-from report_items.clients.auth_client import AuthClient
+from src.clients.auth_client import AuthClient
 
 
 class TokenManager:

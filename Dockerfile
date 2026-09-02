@@ -19,4 +19,4 @@ COPY README.md ./
 COPY src ./src
 RUN uv sync --locked --no-dev
 
-CMD ["report-items"]
+CMD ["start"]

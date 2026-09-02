@@ -1,6 +1,6 @@
 from unittest.mock import MagicMock
 
-from report_items.auth.token_manager import TokenManager
+from src.auth.token_manager import TokenManager
 
 
 def build_token_manager(login_return_values=None):

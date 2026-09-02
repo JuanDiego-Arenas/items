@@ -3,9 +3,9 @@ from unittest.mock import MagicMock
 import httpx
 import pytest
 
-from report_items.clients.items_client import ItemsClient
-from report_items.config.settings import Settings
-from report_items.exceptions.external_api import (
+from src.clients.items_client import ItemsClient
+from src.config.settings import Settings
+from src.exceptions.external_api import (
     ExternalApiError,
     ExternalApiForbiddenError,
     ExternalApiNotFoundError,

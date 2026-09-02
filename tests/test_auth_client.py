@@ -1,9 +1,9 @@
 import httpx
 import pytest
 
-from report_items.clients.auth_client import AuthClient
-from report_items.config.settings import Settings
-from report_items.exceptions.external_api import ExternalApiAuthError
+from src.clients.auth_client import AuthClient
+from src.config.settings import Settings
+from src.exceptions.external_api import ExternalApiAuthError
 
 
 def build_settings() -> Settings:

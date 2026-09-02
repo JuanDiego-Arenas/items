@@ -1,6 +1,6 @@
 from typing import Any, ClassVar
 
-from report_items.clients.items_client import Item, ItemCriterio, ItemDescripcionTecnica
+from src.clients.items_client import Item, ItemCriterio, ItemDescripcionTecnica
 
 # Ids de plan usado para ubicar criterios específicos del item.
 PLAN_ID_LABORATORIO = "001"

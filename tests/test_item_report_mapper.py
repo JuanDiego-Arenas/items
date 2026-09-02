@@ -1,9 +1,9 @@
-from report_items.clients.items_client import (
+from src.clients.items_client import (
     Item,
     ItemCriterio,
     ItemDescripcionTecnica,
 )
-from report_items.reports.item_report_mapper import ItemReportMapper
+from src.reports.item_report_mapper import ItemReportMapper
 
 
 def build_item(**overrides) -> Item:

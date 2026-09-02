@@ -6,8 +6,8 @@ Servicio programado que consulta los ítems de una compañía en una API externa
 
 Crea `.env` desde la plantilla y completa las credenciales de la API:
 
-```powershell
-Copy-Item .env.example .env
+```bash
+cp .env.example .env
 ```
 
 | Variable | Descripción | Predeterminado |
@@ -19,7 +19,7 @@ Copy-Item .env.example .env
 | `COMPANY_ID` | Compañía cuyos ítems se consultarán. | — |
 | `SCHEDULE_CRON` | Cron de cinco campos para generar el reporte. | — |
 | `API_CHANNEL` | Valor enviado en el encabezado `x-canal`. | `API` |
-| `API_TIMEOUT` | Tiempo máximo de espera HTTP, en segundos. | `30` |
+| `API_TIMEOUT` | Tiempo máximo de espera HTTP, en segundos. | `60` |
 | `SCHEDULE_TIMEZONE` | Zona horaria del cron. | `America/Bogota` |
 | `REPORT_OUTPUT_DIR` | Nombre de la carpeta hermana donde se guardará el reporte. | `Items` |
 
@@ -27,7 +27,7 @@ Copy-Item .env.example .env
 
 Requiere Docker con Docker Compose. Con `.env` configurado, inicia el servicio con un solo comando:
 
-```powershell
+```bash
 docker compose up -d --build
 ```
 
@@ -35,7 +35,7 @@ El contenedor se reinicia automáticamente salvo que se detenga manualmente. El 
 
 Consulta los registros o detén el servicio con:
 
-```powershell
+```bash
 docker compose logs -f
 docker compose down
 ```
@@ -44,9 +44,9 @@ docker compose down
 
 Requiere Python 3.14+ y [uv](https://docs.astral.sh/uv/).
 
-```powershell
+```bash
 uv sync
-uv run report-items
+uv run start
 ```
 
 El proceso queda activo y ejecuta el reporte en los horarios definidos por `SCHEDULE_CRON`. Para detenerlo, usa `Ctrl+C`.
@@ -55,6 +55,7 @@ Al ejecutarlo desde la raíz de `report-items`, el reporte se guarda en la carpe
 
 Ejecuta las pruebas con:
 
-```powershell
+```bash
 uv run pytest
+uv run pytest -v
 ```

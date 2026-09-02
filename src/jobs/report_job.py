@@ -1,9 +1,9 @@
 import logging
 
-from report_items.clients.items_client import ItemsClient
-from report_items.config.settings import Settings
-from report_items.exceptions.external_api import ExternalApiError
-from report_items.reports.excel_report import ExcelReportGenerator
+from src.clients.items_client import ItemsClient
+from src.config.settings import Settings
+from src.exceptions.external_api import ExternalApiError
+from src.reports.excel_report import ExcelReportGenerator
 
 logger = logging.getLogger(__name__)
 

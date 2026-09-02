@@ -1,13 +1,14 @@
 from pathlib import Path
+from typing import Any
 
 import pytest
 from pydantic import ValidationError
 
-from report_items.config.settings import Settings
+from src.config.settings import Settings
 
 
-def build_settings(**overrides: object) -> Settings:
-    values: dict[str, object] = {
+def build_settings(**overrides: Any) -> Settings:
+    values: dict[str, Any] = {
         "api_base_url": "https://api.example.com",
         "api_key": "test-key",
         "api_email": "user@example.com",

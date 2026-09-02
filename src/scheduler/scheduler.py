@@ -3,8 +3,8 @@ import logging
 from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.triggers.cron import CronTrigger
 
-from report_items.config.settings import Settings
-from report_items.jobs.report_job import ReportJob
+from src.config.settings import Settings
+from src.jobs.report_job import ReportJob
 
 logger = logging.getLogger(__name__)
 

@@ -14,11 +14,15 @@ dependencies = [
 ]
 
 [project.scripts]
-report-items = "report_items.main:main"
+start = "src.main:main"
 
 [build-system]
 requires = ["uv_build>=0.12.7,<0.13.0"]
 build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "src"
+module-root = ""
 
 [dependency-groups]
 dev = [
@@ -32,7 +36,8 @@ dev = [
 testpaths = ["tests"]
 
 [tool.pyright]
-include = ["report_items", "tests"]
+include = ["src", "tests"]
 typeCheckingMode = "standard"
 pythonVersion = "3.14"
 reportMissingTypeStubs = false
+extraPaths = ["./src"]

@@ -6,7 +6,7 @@ from src.clients.auth_client import AuthClient
 from src.clients.items_client import ItemsClient
 from src.config.settings import Settings
 from src.jobs.report_job import ReportJob
-from src.logging.logger import configure_logging
+from src.log_config.logging import configure_logging
 from src.reports.excel_report import ExcelReportGenerator
 from src.reports.item_report_mapper import ItemReportMapper
 from src.scheduler.scheduler import ReportScheduler
@@ -33,9 +33,9 @@ def load_settings() -> Settings:
 
 
 def main() -> None:
-    configure_logging()
-
     settings = load_settings()
+
+    configure_logging(timezone=settings.schedule_timezone)
 
     with httpx.Client(
         base_url=settings.api_base_url,

@@ -53,9 +53,10 @@ El proceso queda activo y ejecuta el reporte en los horarios definidos por `SCHE
 
 Al ejecutarlo desde la raíz de `report-items`, el reporte se guarda en la carpeta hermana indicada por `REPORT_OUTPUT_DIR`; con el valor `Items`, queda en `../Items/items.xlsx`.
 
-Ejecuta las pruebas con:
+Ejecuta las pruebas y el linter con:
 
 ```bash
 uv run pytest
 uv run pytest -v
+uv run pyright
 ```
